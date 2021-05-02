@@ -1,0 +1,85 @@
+<!doctype html public "-//w3c//dtd html 4.01//EN" >
+<html>
+<head>
+  <title>Walli</title>
+  <link rel="icon" href="walli icon2.png" type="image/png">
+  
+  <script>
+  var usernames_arr = new Array("admin","amgad");
+  var passwords_arr = new Array("admin","159123");
+  var roles_arr = new Array("admin","user");
+  var usertype =0;
+  var Liveuser ;
+  var Livepassword ;
+  function IsAdmin(){
+	Liveuser = document.getElementById("id").value;
+	Livepassword = document.getElementById("pw").value;
+	for(var i=0;i<usernames_arr.length;i++){
+	if(usernames_arr[i] == Liveuser && passwords_arr[i] == Livepassword){ 
+	usertype=1;
+  }
+  else if(Liveuser == "admin" && Livepassword == "admin")
+  {
+	usertype=2;
+  }
+  else{usertype=0; }
+	}localStorage.setItem("usertype",usertype);
+	if(usertype==0){alert("incorrect id or password");}
+	else{window.location.href="Home.html";}
+		}
+		
+  </script>
+  <style>
+    @font-face {
+      font-family: "myfont";
+      src: url("josef-webfont.woff");
+    }
+    
+   .myfont { font-family: "myfont", serif; font-size:18px;text-indent:15px;}
+   body,html{
+
+background-image:url("final login.jpg");
+height:100%;
+ background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment:fixed;
+}
+   .border{border-style:solid; border-radius:20px; border-color:gray; outline:none; background-color:#e6e7e9;  height:30px; width:250px; }
+   .username_pos{ margin-left:1020px;margin-top:370px;}
+   .password_pos{ margin-left:1020px;margin-top:30px;}
+   #chkbox_pos{ margin-left:1030px; margin-top:30px;}
+   .btn_pos{margin-left:1050px; margin-top:40px;}
+    #register{margin-left:1030px; margin-top:30px; }
+	.text{margin-left:35px;}
+   .btn_border{width:200px;height:40px;border-radius:20px; outline:none; text-align:center;}
+   .btn_animation{color:white; background-color:#65c6cd; transition:0.3s; cursor:pointer}
+   .btn_animation:hover{background-color:#0099a7; transition:0.4s;}
+   a:link{color:red; text-decoration:none;}
+   a:hover{text-decoration:underline;}
+   h2{margin-top:2%;margin-left:5%;font-size:70px;font-family: "myfont";color:#1b878b;cursor:pointer;}
+   .bar{margin-top:-6%;margin-left:78%;text-decoration:none;}
+.btns{margin-right:10%;}
+.btns{color:#ffffff;font-size:25px;cursor:pointer;text-decoration:none;}
+.btns:hover{color:#2eb7bc;transition:0.4s;}
+  </style>
+</head>
+<body scroll="no" style="overflow: hidden"> 
+<h2>Walli</h2>
+
+<div class="bar">
+<a href="Home.html" target="_self" class="btns">Home</a>
+<a href="Discover.html" target="_self" class="btns">Discover</a>
+<a href="Search.html" target="_self" class="btns">Search</a>
+</div>
+<form name="login_info">
+<input type="text" class="border myfont username_pos" name="id" id="id" placeholder="USERNAME"/>
+<input type="password" class="border myfont password_pos" name="pw" id="pw" placeholder="PASSWORD"/></br>
+<input type="button" value="Sign in" class="btn_pos btn_border myfont btn_animation" onclick="IsAdmin()"/>
+</form>
+<div id="chkbox_pos" class="myfont">
+<input type="checkbox" name="PSWRD" id="checkbox" /> Remember me</div>
+<div id="register" class="myfont">
+Don't have an account ? <br> <a href="sign up.html" class="text"; target="_self">create an account</a></div>
+</body>
+</html>

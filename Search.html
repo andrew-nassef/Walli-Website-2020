@@ -1,0 +1,143 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+  <title>Walli</title>
+  <link rel="icon" href="walli icon2.png" type="image/png">
+	
+<style>
+ @font-face {
+      font-family: "myfont";
+      src: url("josef-webfont.woff");
+    }
+	p{
+	font-family:myfont;
+	}
+	.card{
+box-shadow:0px 0px 3px 3px rgba(0, 0 , 0, .5);
+    position:relative;
+	top:0px; margin-bottom:0px; margin-left:15px;
+	margin-bottom:15px;
+    background-color:rgba(211, 211, 211,0.3);
+	padding:1%;
+	width:96%;
+	border-radius:15px;
+    }
+	img{
+	width:150px;
+	float:left;
+margin-left:50px;
+}
+.bar{margin-top:3%;margin-left:59%;}
+.background{background-image:url("20374sad.jpg"); background-size:100%;background-repeat:no-repeat;background-attachment:fixed;}
+a{margin-right:10%;}
+a{color:#ffffff;font-size:25px;cursor:pointer;text-decoration:none;}
+a:hover{color:#2eb7bc;transition:0.3s;}
+input{margin-right:8%;}
+input{color:white;background-color:#00a0a9;font-size:20px;border-style:none;border-radius:20px;padding:1% 3% 1% 3%;outline:none;cursor:pointer}
+input:hover{background-color:#2eb7bc;transition:0.4s;}
+#page_tit{margin-top:8%;margin-left:42%;font-size:120px;font-family: "myfont";color:#1b878b;cursor:pointer;outline:none;}
+#search_bar{Color:black;background-color:rgba(211, 211, 211,0.8);margin-left:28%;margin-top:-4.5%;width:40%;length:3%;cursor:text;border-radius:30px; outline:none;}
+#comboo
+{margin-left:42%;margin-top:2%;margin-bottom:3%;font-size:25px;color:rgb(211, 211, 211);
+
+}
+select{font-size:20px;border-radius:10px; outline:none;background-color:#D3D3D3;color:gray;}
+.search_btn{Color:black;background-color:#D3D3D3;cursor:pointer;border-radius:30px; outline:none;}
+<!--Cards-->
+
+	h3{margin-left:30px;
+}
+p{
+	margin-left:50px;
+	padding-bottom:10px;
+}
+#search_type
+{
+background-color:rgba(211, 211, 211,0.8);
+padding:0.3%;
+border-radius:50px;
+}
+</style>
+</head>
+<body class="background">
+<script src="page data.js"></script>
+
+<div class="bar">
+<a href="Home.html">Home</a>
+<a href="Discover.html">Discover</a>
+<input type="button" onclick="btn1_check()" id="btn1" value="Sign in"/>
+<input type="button" onclick="btn2_check()"id="btn2" value="Sign up"/>
+</div>
+<script>
+var usertype;
+if(localStorage.getItem("usertype")!=0&&localStorage.getItem("usertype")!=1&&localStorage.getItem("usertype")!=2){
+usertype=0;
+
+}
+else{usertype=localStorage.getItem("usertype");
+
+} 
+function login_check(){
+if(usertype==0){
+document.getElementById("btn1").value="Sign In";
+document.getElementById("btn2").value="Sign Up";
+}else if(usertype==1 || usertype==2){
+document.getElementById("btn1").value="Sign Out";
+document.getElementById("btn2").value="Profile";
+}
+}
+function btn1_check(){
+if(usertype==0){
+window.location.href="Login form.html";
+}
+else{
+usertype=0;
+localStorage.setItem("usertype",usertype);
+document.getElementById("btn1").value="Sign In";
+document.getElementById("btn2").value="Sign Up";
+}
+}
+function btn2_check(){
+if(usertype==0){
+window.location.href="sign up.html";
+}
+else {
+window.location.href="Admin.html";
+}
+}
+login_check();
+
+
+</script>
+<h2 id="page_tit"><b>Walli</b></h2>
+
+<input type="text" id="search_bar" placeholder="Type Name, Speciality or Region"/>
+<input type="button" id="search_btn" value="search" style="margin-left:-16%" onclick="searching()"/><br>
+<div id="comboo">
+<label for="search">Search by:</label>
+<select id="search_type">
+  <option value="name">Name</option>
+  <option value="speciality">Speciality</option>
+  <option value="region">Region</option>
+</select>
+</div>
+<div class="card" id="copy0">
+
+<p style="color:#ffffff; margin-left:10px;margin-top:3px;font-size:32px; "></p>
+<img src="doctor-icon.png"/>
+<p style="margin-left:30px;"></p>
+<p style="margin-left:30px;"></p>
+<p style="margin-left:30px;"></p>
+<p style="margin-left:200px;"></p>
+<p style="margin-left:200px;"></p>
+
+</div>
+<script>
+
+	var card_hide=document.getElementById("copy0");
+	card_hide.style.display ="none";
+	
+	</script>
+</body>
+</html>

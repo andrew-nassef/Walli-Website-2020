@@ -1,0 +1,97 @@
+<!doctype html public "-//w3c//dtd html 4.01//EN" >
+<html>
+<head>
+  <title>Walli</title>
+
+  <style>
+    @font-face {
+      font-family: "myfont";
+      src: url("josef-webfont.woff");
+    }
+    
+   .myfont { font-family: "myfont", serif; font-size:18px;text-indent:15px;}
+   .background{background-image:url("final res.jpg"); background-size:1750px 870px;background-repeat:no-repeat;}
+   .border{border-style:solid; border-radius:20px; border-color:gray; outline:none; background-color:#e6e7e9; width=50px; height:30px; width:250px;}
+   .username_pos{ margin-left:1050px;margin-top:260px;}
+   .name_pos{margin-left:1050px;margin-top:30px;}
+   .password_pos{ margin-left:1050px;margin-top:30px;}
+   .Cpassword_pos{margin-left:1050px;margin-top:30px;}
+   #gender{margin-left:1080px; margin-top:30px;}
+   .btn_pos{margin-left:1080px; margin-top:10px;}
+    #register{ margin-left:1060px; margin-top:30px;}
+   .btn_border{width:200px;height:40px;border-radius:20px; outline:none; text-align:center;}
+   .btn_animation{color:white; background-color:#65c6cd; transition:0.3s; cursor:pointer}
+   .btn_animation:hover{background-color:#0099a7; transition:0.4s;}
+   .text{margin-left:100px;}
+   a:link{color:red; text-decoration:none;}
+   a:hover{text-decoration:underline;}
+   #female{margin-left:100px; margin-top:-48px;}
+     h2{margin-top:2%;margin-left:5%;font-size:70px;font-family: "myfont";color:#1b878b;cursor:pointer;}
+   .bar{margin-top:-6%;margin-left:78%;text-decoration:none;}
+.btns{margin-right:10%;}
+.btns{color:#ffffff;font-size:25px;cursor:pointer;text-decoration:none;}
+.btns:hover{color:#2eb7bc;transition:0.4s;}
+  </style>
+
+</head>
+<body class="background">
+<h2>Walli</h2>
+
+<div class="bar">
+<a href="Home.html" target="_self" class="btns">Home</a>
+<a href="Discover.html" target="_self" class="btns">Discover</a>
+<a href="Search.html" target="_self" class="btns">Search</a>
+</div>
+
+<form name="login_info">
+<input type="text" class="border myfont username_pos" id="id" placeholder="USERNAME"/>
+<input type="text" class="border myfont name_pos" id="Name" placeholder="Fullname"/>
+<input type="password" class="border myfont password_pos" id="pw" placeholder="PASSWORD"/></br>
+<input type="password" class="border myfont Cpassword_pos" id="Cpw" placeholder="CONFIRM PASSWORD"/></br>
+<div id="gender" class="myfont">
+<input type="radio" class="myfont gender_pos" name="gender"/> male 
+<input type="radio" class="myfont gender_pos" name="gender"/> female</div><br>
+<input type="button" value="Sign up" class="btn_pos btn_border myfont btn_animation" onclick="Validation()"/>
+</form>
+<div id="register" class="myfont" >
+Already have an account ? <br> <a href="login form.html" class ="text" target="_self">Sign in</a></div>
+
+<script>   
+
+
+ var usernames_arr = JSON.parse(localStorage.getItem("usernames_arr"));
+  var passwords_arr = JSON.parse(localStorage.getItem("passwords_arr"));
+  var roles_arr = JSON.parse(localStorage.getItem("roles_arr"));
+var usertype;
+function Validation(){
+
+
+var Is_ok = true;
+var Liveusername = document.getElementById("id").value;
+for (var i=0;i<usernames_arr.length;i++){
+if(Liveusername == usernames_arr[i]){ alert("the username is taken"); Is_ok=false;}
+}
+
+if(document.getElementById("pw").value != document.getElementById("Cpw").value){
+alert("The password doesn't match"); 	Is_ok=false;
+}
+if(Is_ok == true){
+usernames_arr.push(Liveusername);
+passwords_arr.push(document.getElementById("pw").value);
+roles_arr.push("user");
+
+localStorage.setItem("usernames_arr",JSON.stringify(usernames_arr));
+localStorage.setItem("passwords_arr",JSON.stringify(passwords_arr));
+localStorage.setItem("roles_arr",JSON.stringify(roles_arr));
+
+	usertype=1;
+	localStorage.setItem("usertype",usertype);
+window.location.href = "Home.html";
+}
+}
+
+
+
+  </script>
+</body>
+</html>

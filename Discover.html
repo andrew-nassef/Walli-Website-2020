@@ -1,0 +1,777 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Walli</title>
+<link rel="icon" href="walli icon2.png" type="image/png">
+<link rel="stylesheet" type="text/css" href="new 1.css">
+<style>
+   @font-face {
+      font-family: "myfont";
+      src: url("josef-webfont.woff");
+    }
+
+.bar{margin-top:3%;margin-left:64%;}
+.background{background-image:url("20374sad.jpg"); background-size:100%;background-repeat:no-repeat;background-attachment:fixed;}
+a{margin-right:10%;}
+a{color:#ffffff;font-size:25px;cursor:pointer;text-decoration:none;}
+a:hover{color:#00a0a9;transition:0.3s;}
+input{margin-right:8%;}
+input{color:white;background-color:#00a0a9;font-size:20px;border-style:none;border-radius:20px;padding:1% 3% 1% 3%;outline:none;cursor:pointer}
+input:hover{background-color:#2eb7bc;transition:0.4s;}
+#page_tit{margin-top:8%;margin-left:40%;font-size:120px;font-family: "myfont";color:#1b878b;cursor:pointer;outline:none;}
+.catgs{color:#D3D3D3;font-size:25px;padding:0.5% 0.2% 0.5% 2%;outline:none;}
+summary{user-select: none; outline:none; cursor:pointer;}
+#i{background-color:rgba(0,160,169,0.2);}
+#j{background-color:rgba(46,183,188,0.2);}
+#i1{background-color:rgba(0,160,169,0.2);border-radius:20px;}
+#j1{background-color:rgba(46,183,188,0.2);border-radius:20px;}
+.table{border-style:solid;border-color:white;border-collapse:collapse;font-size:20px;border-radius:20px;margin-top:20px;}
+td{border-style:solid;border-color:#D3D3D3;padding:0.2% 0.5% 0.2% 0.5%;font-size:20px;width:5%;}
+</style>
+<script src="page data.js"></script>
+</head>
+<body class="background">
+
+<div class="bar">
+<a href="Home.html">Home</a>
+<a href="Search.html">Search</a>
+<input type="button" onclick="btn1_check()" id="btn1" value="Sign in"/>
+<input type="button" onclick="btn2_check()"id="btn2" value="Sign up"/>
+</div>
+<script>
+var usertype;
+if(localStorage.getItem("usertype")!=0&&localStorage.getItem("usertype")!=1&&localStorage.getItem("usertype")!=2){
+usertype=0;
+
+}
+else{usertype=localStorage.getItem("usertype");
+
+} 
+function login_check(){
+if(usertype==0){
+document.getElementById("btn1").value="Sign In";
+document.getElementById("btn2").value="Sign Up";
+}else if(usertype==1 || usertype==2){
+document.getElementById("btn1").value="Sign Out";
+document.getElementById("btn2").value="Profile";
+}
+}
+function btn1_check(){
+if(usertype==0){
+window.location.href="Login form.html";
+}
+else{
+usertype=0;
+localStorage.setItem("usertype",usertype);
+document.getElementById("btn1").value="Sign In";
+document.getElementById("btn2").value="Sign Up";
+}
+}
+function btn2_check(){
+if(usertype==0){
+window.location.href="sign up.html";
+}
+else {
+window.location.href="Admin.html";
+}
+}
+login_check();
+
+
+</script>
+<h2 id="page_tit"><b>Walli</b></h2>
+
+<h3 style="color:#D3D3D3;font-size:40px;text-shadow:0.8px 0.8px black;"><b>Availiable Specialities</b></h3>
+<div style="width:100%;float:center;border:solid;border-color:#D3D3D3;border-radius:20px;background-color:rgba(0,160,169,0.2);">
+
+<details class="catgs" id="i1">
+<summary>General surgery</summary>
+<table id="table1" class="table">
+<tr>
+<td>Doctor Name</td>
+ <td>Region</td>
+  <td>Fees</td>
+   <td>Rating</td>
+    <td>Address</td>
+     <td>Dates</td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+</table>
+</details>
+<details class="catgs" id="j">
+<summary>Ophthalmology(Eyes)</summary>
+<table id="table2" class="table">
+<tr>
+<td>Doctor Name</td>
+ <td>Region</td>
+  <td>Fees</td>
+   <td>Rating</td>
+    <td>Address</td>
+     <td>Dates</td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+</table>
+
+</details>
+<details class="catgs" id="i">
+<summary>phoniatrics</summary>
+<table id="table3" class="table">
+<tr>
+<td>Doctor Name</td>
+ <td>Region</td>
+  <td>Fees</td>
+   <td>Rating</td>
+    <td>Address</td>
+     <td>Dates</td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+</table>
+
+</details>
+<details class="catgs" id="j">
+<summary>physiotherapy and sport injuries</summary>
+<table id="table4" class="table">
+<tr>
+<td>Doctor Name</td>
+ <td>Region</td>
+  <td>Fees</td>
+   <td>Rating</td>
+    <td>Address</td>
+     <td>Dates</td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+</table>
+
+</details>
+<details class="catgs" id="i">
+<summary>Dietitian</summary>
+<table id="table5" class="table">
+<tr>
+<td>Doctor Name</td>
+ <td>Region</td>
+  <td>Fees</td>
+   <td>Rating</td>
+    <td>Address</td>
+     <td>Dates</td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+</table>
+
+</details>
+<details class="catgs" id="j">
+<summary>Diabetes</summary>
+<table id="table6" class="table">
+<tr>
+<td>Doctor Name</td>
+ <td>Region</td>
+  <td>Fees</td>
+   <td>Rating</td>
+    <td>Address</td>
+     <td>Dates</td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+</table>
+
+</details>
+<details class="catgs" id="i">
+<summary>pediatrics and Newborn</summary>
+<table id="table7" class="table">
+<tr>
+<td>Doctor Name</td>
+ <td>Region</td>
+  <td>Fees</td>
+   <td>Rating</td>
+    <td>Address</td>
+     <td>Dates</td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+</table>
+
+
+</details>
+<details class="catgs" id="j1">
+<summary>Bones</summary>
+<table id="table8" class="table">
+<tr>
+<td>Doctor Name</td>
+ <td>Region</td>
+  <td>Fees</td>
+   <td>Rating</td>
+    <td>Address</td>
+     <td>Dates</td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+<tr>
+ <td></td>
+  <td></td>
+   <td></td>
+    <td></td>
+	 <td></td>
+	  <td></td>
+</tr>
+</table>
+
+
+</details>
+</div>
+<script>
+var table = document.getElementById("table1");
+var index=0;
+setting();
+table = document.getElementById("table2");
+setting();
+table = document.getElementById("table3");
+setting();
+table = document.getElementById("table4");
+setting();
+table = document.getElementById("table5");
+setting();
+table = document.getElementById("table6");
+setting();
+table = document.getElementById("table7");
+setting();
+table = document.getElementById("table8");
+setting();
+function setting(){
+for(var i = 1; i < 9; i++){
+table.rows[i].cells[0].innerHTML = mydoctors[index].name;
+table.rows[i].cells[1].innerHTML = mydoctors[index].regions;
+table.rows[i].cells[2].innerHTML = mydoctors[index].fees + " EGP";
+table.rows[i].cells[3].innerHTML = mydoctors[index].rate + " starts";
+table.rows[i].cells[4].innerHTML = mydoctors[index].locations;
+table.rows[i].cells[5].innerHTML = mydoctors[index].uptime;
+index++;
+}
+}
+
+/*
+var the_card = document.getElementById('card_template3');
+
+for(var i =0;i<mydoctors.length;i++ ) {
+if(mydoctors[i].speciality=="General surgery"){
+    var adding = the_card.cloneNode(true);
+    adding.id = "copy" + i;
+	document.getElementsByTagName("p")[0].innerHTML = mydoctors[i].name;
+    document.getElementsByTagName("p")[1].innerHTML = "Region: " + mydoctors[i].regions;
+    document.getElementsByTagName("p")[2].innerHTML = "Fees: " + mydoctors[i].fees + "    Rate: " + mydoctors[i].rate;
+	document.getElementsByTagName("p")[3].innerHTML = "Address: " + mydoctors[i].locations;
+	document.getElementsByTagName("p")[4].innerHTML = "Dates: " + mydoctors[i].uptime;
+    the_card.parentNode.appendChild(adding);
+}
+}
+var the_card2 = document.getElementById('card_template1');
+for(var i =0;i<mydoctors.length;i++ ) {
+if(mydoctors[i].speciality=="Ophthalmology"){
+    var adding2 = the_card2.cloneNode(true);
+    adding2.id = "copy" + i;
+	document.getElementsByTagName("p")[0].innerHTML = mydoctors[i].name;
+    document.getElementsByTagName("p")[1].innerHTML = "Region: " + mydoctors[i].regions;
+    document.getElementsByTagName("p")[2].innerHTML = "Fees: " + mydoctors[i].fees + "    Rate: " + mydoctors[i].rate;
+	document.getElementsByTagName("p")[3].innerHTML = "Address: " + mydoctors[i].locations;
+	document.getElementsByTagName("p")[4].innerHTML = "Dates: " + mydoctors[i].uptime;
+    the_card2.parentNode.appendChild(adding2);
+}
+}*/
+</script>
+</body>
+</html>
+
+
+
+

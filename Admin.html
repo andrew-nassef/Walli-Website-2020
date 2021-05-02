@@ -1,0 +1,168 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <link rel="icon" href="walli icon2.png" type="image/png">
+  
+<style>
+ @font-face {
+      font-family: "myfont";
+      src: url("josef-webfont.woff");
+    }
+    
+   .myfont { font-family: "myfont", serif; font-size:18px;text-indent:15px;}
+   body,html{
+
+background-image:url("admin bg.jpg");
+height:100%;
+ background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment:fixed;
+}
+   h2{margin-top:2%;margin-left:5%;font-size:70px;font-family: "myfont";color:#1b878b;cursor:pointer;}
+   .bar{margin-top:-8%;margin-left:78%;text-decoration:none;}
+.btns{margin-right:10%;}
+.btns{color:#ffffff;font-size:25px;cursor:pointer;text-decoration:none;}
+.btns:hover{color:#2eb7bc;transition:0.4s;}
+#instructions_btns{margin-top:3%;margin-left:55%;}
+.btnss{color:white;background-color:#00a0a9;font-size:17px;border-style:none;border-radius:10px;padding:1% 2% 1% 2%;outline:none;cursor:pointer;}
+.btnss:hover{background-color:#2eb7bc;transition:0.3s;}
+#ad_doc{margin-left:60%;margin-top:8%; }
+.ad_doc_style{margin-bottom:2%;border-style:solid; border-radius:20px; border-color:gray; outline:none; background-color:#e6e7e9;  height:30px; width:250px;text-indent:15px;}
+
+#rem_doc{margin-left:60%;margin-top:15%;}
+#rem_doc_style{border-style:solid; border-radius:20px; border-color:gray; outline:none; background-color:#e6e7e9;  height:30px; width:250px;text-indent:15px;}
+#btn{box-shadow:2px 2px 2px black;margin-left:14%;margin-top:3%;color:white;background-color:#00a0a9;font-size:20px;border-style:none;border-radius:20px;padding:1% 2% 1% 2%;outline:none;cursor:pointer;}
+#btn:hover{background-color:#2eb7bc;transition:0.3s;}
+#ad_admin{margin-left:60%;margin-top:15%;}
+#ad_admin_style{border-style:solid; border-radius:20px; border-color:gray; outline:none; background-color:#e6e7e9;  height:30px; width:250px;text-indent:15px;}
+</style>
+<script src="page data.js"></script>
+</head>
+<body scroll="no" style="overflow: hidden"> 
+<h2>Walli</h2>
+
+<div class="bar">
+<a href="Home.html" target="_self" class="btns">Home</a>
+<a href="Discover.html" target="_self" class="btns">Discover</a>
+<a href="Search.html" target="_self" class="btns">Search</a>
+</div>
+<div id="instructions_btns">
+<input type="button" class="btnss" value="Add Doctor"    onclick="set_up1()"/>
+<input type="button" class="btnss" value="Remove Doctor" onclick="set_up2()"/>
+<input type="button" class="btnss" value="Add Admin"     onclick="set_up3()"/>
+</div>
+
+<form id="ad_doc">
+<div id="add_form">
+<input type="text" class="ad_doc_style" placeholder="Enter Doctor name..." required /><br>
+<input type="text" class="ad_doc_style" placeholder="Enter Doctor speciality..." required /><br>
+<input type="text" class="ad_doc_style" placeholder="Enter Doctor fees..." required /><br>
+<input type="text" class="ad_doc_style" placeholder="Enter Doctor rate..." required /><br>
+<input type="text" class="ad_doc_style" placeholder="Enter Doctor region..." required /><br>
+<input type="text" class="ad_doc_style" placeholder="Enter Doctor locations..." required /><br>
+<input type="text" class="ad_doc_style" placeholder="Enter Doctor dates..." required /><br>
+</div>
+<input type="button" value="Confirm" id="btn" onclick="add_doc()" />
+</form>
+<form id="rem_doc">
+<input type="text" placeholder="Enter Doctor name..." id="rem_doc_style"/><br>
+<input type="button" value="Confirm" id="btn" onclick="remove_doc()" />
+</form>
+<form id="ad_admin">
+<input type="text" placeholder="Enter new admin username.." id="ad_admin_style"/><br>
+<input type="button" value="Confirm" id="btn" onclick="add_admin()" />
+</form>
+
+<script>
+var hide1=document.getElementById("ad_doc");
+	hide1.style.display = "none";
+var	hide2=document.getElementById("rem_doc");
+    hide2.style.display = "none";
+var	hide3=document.getElementById("ad_admin");
+    hide3.style.display = "none";
+	
+	function set_up1(){
+	hide1.style.display = "block";
+	hide2.style.display = "none";
+	hide3.style.display = "none";
+	}
+	function set_up2(){
+	hide1.style.display = "none";
+	hide2.style.display = "block";
+	hide3.style.display = "none";
+	}
+	function set_up3(){
+	hide1.style.display = "none";
+	hide2.style.display = "none";
+	hide3.style.display = "block";
+	}
+	
+	function add_doc(){
+
+var doc = new doctor(document.getElementsByTagName("input")[3].value,
+		           document.getElementsByTagName("input")[4].value,
+                   document.getElementsByTagName("input")[5].value,
+                   document.getElementsByTagName("input")[6].value,
+                   document.getElementsByTagName("input")[7].value,
+                   document.getElementsByTagName("input")[8].value, 
+                   document.getElementsByTagName("input")[9].value				   
+		);	
+    mydoctors.push(doc);		
+	alert("doctor added successfully");
+	}
+	
+	function remove_doc(){
+	var entered_name = document.getElementsByTagName("input")[11].value;
+	
+	var compared_name;
+	var searching_name = entered_name.toUpperCase();
+	var isFound=false;
+	for(var i=0;i<mydoctors.length;i++){
+		compared_name = mydoctors[i].name.toUpperCase();
+		if (compared_name.match(searching_name)) {
+		delete mydoctors[i];
+		isFound=true;
+	for(var j=i;j<mydoctors.length-1;j++){
+	mydoctors[j] = mydoctors[j+1];
+	}
+		alert("doctor removed successfully");
+		break;
+		}		
+				
+		}
+		if(!isFound)
+		alert("Doctor name isn't correct");
+		
+	}
+	
+	function add_admin(){
+	 var usernames_arr = JSON.parse(localStorage.getItem("usernames_arr"));
+     var roles_arr = JSON.parse(localStorage.getItem("roles_arr"));
+		
+		var entered_name = document.getElementsByTagName("input")[13].value;
+			var compared_name;
+	var searching_name = entered_name.toUpperCase();
+var isFound=false;
+	for(var i=0;i<usernames_arr.length;i++){
+		compared_name = usernames_arr[i].toUpperCase();
+		if (compared_name.match(searching_name)) {
+roles_arr[i]="admin";
+		alert("user is now an admin");
+		isFound=true;
+		break;
+		}				
+		}
+		if(!isFound)
+		alert("username isn't correct");
+	}
+	
+</script>
+
+</body>
+
+</html>
+
+
+
